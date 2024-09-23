@@ -1,0 +1,20 @@
+# system:
+Você é um engenheiro de prompt experiente
+
+# user:
+Leia o arquivo de Fonte abaixo:
+{{swiftCode}}
+
+Agora considerando o arquivo de Fonte gere uma listagem de fontes.
+
+# Montagem da listagem:
+- A propriedades estáticas que representam uma fonte.
+- O retorno da função estática passando como parâmetros os tipos de fonte e os tamanhos das fontes. Descreva a variação de cada combinação de parâmetros (considere todo o enum de FontType e todo o enum de FontSize) combinando todos os tipos de fonte para todos os tamanhos de fonte descritos no enum.
+- Não omita nenhum combinação, todas as combinações devem ser consideradas.
+
+# Exibição
+Gere a listagem como array de strings de um json.
+Coloque o prefixo nas strings: "nome da classe" + "."
+Ao final de cada String adicione dentro da string o padrão: "=" + "valor do RawValue do FontType (Family Name)" + ":" + "tamanho da fonte usada".
+Não detalhe a tarefa e não coloque marcação de código markdown.
+

@@ -7,11 +7,11 @@ inputs:
     default: hBAh9Eh7bnc4yCfcCNRq3i
   figmaKey:
     type: string
-    default: 
+    default: "null"
 outputs:
   FigmaResult:
     type: string
-    reference: ${UpdateColorStep.output}
+    reference: ${UpdateOthersStep.output}
 nodes:
 - name: FigmaStep
   type: python
@@ -44,3 +44,36 @@ nodes:
   inputs:
     json_obj: ${FigmaStep.output}
     string_array: ${DSKitReadPanColorParsedStep.output}
+- name: DSKitReadPanFontStep
+  type: python
+  source:
+    type: package
+    tool: flow_core.tools.read.read
+  inputs:
+    filename: ./DSKit-Light/PanFont.swift
+- name: DSKitReadPanFontParsedStep
+  type: custom_llm
+  source:
+    type: package_with_prompt
+    tool: flow_core.tools.flow_orchestrator_chat_tool.FlowOrchestratorChatCompletionTool.chat_completion
+    path: DSKitReadPanFontParsedStep.jinja2
+  inputs:
+    model: gpt-4o-mini
+    temperature: 0.2
+    flow_connection: ciandt_flow_connection
+    swiftCode: ${DSKitReadPanFontStep.output}
+- name: UpdateFontStep
+  type: python
+  source:
+    type: code
+    path: UpdateFontStep.py
+  inputs:
+    json_obj: ${UpdateColorStep.output}
+    json_font: ${DSKitReadPanFontParsedStep.output}
+- name: UpdateOthersStep
+  type: python
+  source:
+    type: code
+    path: UpdateOthersStep.py
+  inputs:
+    json_obj: ${UpdateFontStep.output}

@@ -28,10 +28,11 @@ def getFigmaComponent(file_key, node_ids, token) -> str:
             return value + '.' + '0' * places
 
         def map_color(obj_color):
-            colorR = limit_decimal_places(str(obj_color["r"]), 3)
-            colorG = limit_decimal_places(str(obj_color["g"]), 3)
-            colorB = limit_decimal_places(str(obj_color["b"]), 3)
-            colorA = limit_decimal_places(str(obj_color["a"]), 3)
+            decimalMax = 1
+            colorR = limit_decimal_places(str(obj_color["r"]), decimalMax)
+            colorG = limit_decimal_places(str(obj_color["g"]), decimalMax)
+            colorB = limit_decimal_places(str(obj_color["b"]), decimalMax)
+            colorA = limit_decimal_places(str(obj_color["a"]), decimalMax)
             return "r:{} g:{} b:{} a:{}".format(colorR, colorG, colorB, colorA)
         
         def map_user_interactions(obj_interaction):

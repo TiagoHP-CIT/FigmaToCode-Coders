@@ -29,10 +29,11 @@ def convert_color(swift_code_list) -> str:
         a = match.group(5)
 
         # Limit the decimal places
-        r = limit_decimal_places(r, 3)
-        g = limit_decimal_places(g, 3)
-        b = limit_decimal_places(b, 3)
-        a = limit_decimal_places(a, 3)
+        decimalMax = 1
+        r = limit_decimal_places(r, decimalMax)
+        g = limit_decimal_places(g, decimalMax)
+        b = limit_decimal_places(b, decimalMax)
+        a = limit_decimal_places(a, decimalMax)
 
         # Format the string
         formatted_color = f"{class_name}.{property_name}=r:{r} g:{g} b:{b} a:{a}"
