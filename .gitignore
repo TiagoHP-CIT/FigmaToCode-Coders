@@ -1,0 +1,14 @@
+# Mac Files and Folders
+**/.DS_Store
+
+# CIT FLow
+**/cache-flow.db.db
+
+# Logs and Executed files
+**/*.log
+**/.promptflow/*.*
+**/py-venv/bin
+**/py-venv/lib
+
+# Secret File to ToolBox
+**/py-venv/pip.conf

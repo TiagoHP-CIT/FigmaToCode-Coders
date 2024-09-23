@@ -1,0 +1,46 @@
+inputs:
+  nodeIds:
+    type: string
+    default: 5188-39165
+  dashboardId:
+    type: string
+    default: hBAh9Eh7bnc4yCfcCNRq3i
+  figmaKey:
+    type: string
+    default: 
+outputs:
+  FigmaResult:
+    type: string
+    reference: ${UpdateColorStep.output}
+nodes:
+- name: FigmaStep
+  type: python
+  source:
+    type: code
+    path: FigmaStep.py
+  inputs:
+    file_key: ${inputs.dashboardId}
+    node_ids: ${inputs.nodeIds}
+    token: ${inputs.figmaKey}
+- name: DSKitReadPanColorStep
+  type: python
+  source:
+    type: package
+    tool: flow_core.tools.read.read
+  inputs:
+    filename: ./DSKit-Light/PanColor.swift
+- name: DSKitReadPanColorParsedStep
+  type: python
+  source:
+    type: code
+    path: DSKitReadPanColorParsedStep.py
+  inputs:
+    swift_code_list: ${DSKitReadPanColorStep.output}
+- name: UpdateColorStep
+  type: python
+  source:
+    type: code
+    path: UpdateColorStep.py
+  inputs:
+    json_obj: ${FigmaStep.output}
+    string_array: ${DSKitReadPanColorParsedStep.output}
