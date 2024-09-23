@@ -44,3 +44,7 @@ Siga as instruções descritas no link [Flow CI&T](https://flow.ciandt.com/docs/
 
 #### 3.4 Create a connection
 Siga as instruções descritas no link [Flow CI&T][https://flow.ciandt.com/docs/techGuide/flow-for-coders/setting_up_your_environment/custom_connection]
+
+
+### IMPORTANTE
+O Github não permite Chaves Secretas embedadas no código, portanto o token do Figma não pode ser commitado e nem o arquio `pip.conf` que será criado no item 3.4 (já está adicionado inclusive no gitignore).
