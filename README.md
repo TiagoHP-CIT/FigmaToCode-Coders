@@ -40,6 +40,7 @@ Após isso selecione Python 3.11 ('py-venv')
 
 
 #### 3.4 Configuração para Toolbox
-Siga as instruções descritas no link [FLOW CI&T](https://flow.ciandt.com/docs/techGuide/flow-for-coders/setting_up_your_environment/flow_toolbox)
+Siga as instruções descritas no link [Flow CI&T](https://flow.ciandt.com/docs/techGuide/flow-for-coders/setting_up_your_environment/flow_toolbox)
 
-#### 3.4 Configuração para Toolbox
+#### 3.4 Create a connection
+Siga as instruções descritas no link [Flow CI&T][https://flow.ciandt.com/docs/techGuide/flow-for-coders/setting_up_your_environment/custom_connection]
